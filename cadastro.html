@@ -3,106 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="icon" type="image/x-icon" href="imagem/patinha.icon.ico">
-      <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Cadastro na ONG Amigos para Sempre: Junte-se a nós e ajude animais abandonados. Preencha o formulário e faça a diferença.">
     <title>Cadastro - ONG Amigos para Sempre</title>
-
+    <link rel="icon" type="image/x-icon" href="imagem/patinha.icon.ico">
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts para um design mais amigável -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
+    <header class="hero-section">
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="projeto.html">Projeto</a></li>
+                <li><a href="cadastro.html" class="active">Cadastro</a></li>
+            </ul>
+        </nav>
+        <h1>ONG Amigos para Sempre</h1>
+        <p>Cadastre-se e ajude nossa causa</p>
+    </header>
 
-<header>
-    <nav>
-        <ul>
-            <li><a href="index.html">Início</a></li>
-            <li><a href="projeto.html">Projeto</a></li>
-        </ul>
-    </nav>
-    <h1>ONG Amigos para Sempre</h1>
-    <p>Cadastre-se e ajude nossa causa</p>
-</header>
+    <main>
+        <section class="form-section">
+            <h2>Formulário de Cadastro</h2>
+            <form id="cadastro" novalidate>
+                <fieldset>
+                    <legend>Dados Pessoais</legend>
+                    <div class="form-group">
+                        <label for="nome">Nome Completo 🐶</label>
+                        <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required>
+                        <span class="error" id="error-nome"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email 📧</label>
+                        <input type="email" id="email" name="email" placeholder="seuemail@email.com" required>
+                        <span class="error" id="error-email"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="cpf">CPF 🆔</label>
+                        <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" required pattern="\d{3}\.\d{3}\.\d{3}-\d{2}">
+                        <span class="error" id="error-cpf"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="nascimento">Data de Nascimento 📅</label>
+                        <input type="date" id="nascimento" name="nascimento" required>
+                        <span class="error" id="error-nascimento"></span>
+                    </div>
+                </fieldset>
 
-<section class="form-card">
-    <h2>Formulário de Cadastro</h2>
-    <form id="cadastro" novalidate>
-   
-        <fieldset>
-            <legend>Dados Pessoais</legend>
+                <fieldset>
+                    <legend>Endereço 🏠</legend>
+                    <div class="form-group">
+                        <label for="cep">CEP</label>
+                        <input type="text" id="cep" name="cep" placeholder="00000-000" required pattern="\d{5}-\d{3}">
+                        <span class="error" id="error-cep"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="endereco">Endereço</label>
+                        <input type="text" id="endereco" name="endereco" placeholder="Rua, número, complemento" required>
+                        <span class="error" id="error-endereco"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="cidade">Cidade</label>
+                        <input type="text" id="cidade" name="cidade" placeholder="Sua cidade" required>
+                        <span class="error" id="error-cidade"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="estado">Estado</label>
+                        <select id="estado" name="estado" required>
+                            <option value="">Selecione...</option>
+                            <option value="AC">Acre</option>
+                            <option value="AL">Alagoas</option>
+                            <option value="AP">Amapá</option>
+                            <option value="AM">Amazonas</option>
+                            <option value="BA">Bahia</option>
+                            <option value="CE">Ceará</option>
+                            <option value="ES">Espírito Santo</option>
+                            <option value="GO">Goiás</option>
+                            <option value="MA">Maranhão</option>
+                            <option value="MG">Minas Gerais</option>
+                            <option value="PA">Pará</option>
+                            <option value="PB">Paraíba</option>
+                            <option value="PE">Pernambuco</option>
+                            <option value="PI">Piauí</option>
+                            <option value="PR">Paraná</option>
+                            <option value="RJ">Rio de Janeiro</option>
+                            <option value="RN">Rio Grande do Norte</option>
+                            <option value="RS">Rio Grande do Sul</option>
+                            <option value="SC">Santa Catarina</option>
+                            <option value="SE">Sergipe</option>
+                            <option value="SP">São Paulo</option>
+                            <option value="TO">Tocantins</option>
+                        </select>
+                        <span class="error" id="error-estado"></span>
+                    </div>
+                </fieldset>
 
-            <label for="nome">Nome Completo</label>
-            <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required>
+                <div class="form-buttons">
+                    <button type="submit">Cadastrar 🐾</button>
+                    <button type="reset" id="limpar">Limpar Formulário</button>
+                </div>
+            </form>
+            <div id="confirmacao" class="confirmacao" style="display: none;">
+                <h3>Obrigado por se cadastrar! 🐱</h3>
+                <p>Em breve, entraremos em contato para mais detalhes sobre como ajudar.</p>
+            </div>
+        </section>
+    </main>
 
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="seuemail@email.com" required>
+    <footer>
+        <p>&copy; 2025 ONG Amigos para Sempre. Todos os direitos reservados.</p>
+    </footer>
 
-            <label for="cpf">CPF</label>
-            <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" required pattern="\d{3}\.\d{3}\.\d{3}-\d{2}">
+    <script>
+        // Máscaras para CPF e CEP (mantidas do seu código)
+        document.getElementById('cpf').addEventListener('input', function(e) {
+            let v = e.target.value.replace(/\D/g,'');
+            v = v.replace(/(\d{3})(\d)/,'$1.$2');
+            v = v.replace(/(\d{3})(\d)/,'$1.$2');
+            v = v.replace(/(\d{3})(\d{1,2})$/,'$1-$2');
+            e.target.value = v;
+        });
 
-            <label for="nascimento">Data de Nascimento</label>
-            <input type="date" id="nascimento" name="nascimento" required>
-        </fieldset>
+        document.getElementById('cep').addEventListener('input', function(e) {
+            let v = e.target.value.replace(/\D/g,'');
+            v = v.replace(/(\d{5})(\d)/,'$1-$2');
+            e.target.value = v;
+        });
 
+        // Validação visual e confirmação
+        const form = document.getElementById('cadastro');
+        const confirmacao = document.getElementById('confirmacao');
 
-        <fieldset>
-            <legend>Endereço</legend>
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            let isValid = true;
+            const fields = ['nome', 'email', 'cpf', 'nascimento', 'cep', 'endereco', 'cidade', 'estado'];
 
-            <label for="cep">CEP</label>
-            <input type="text" id="cep" name="cep" placeholder="00000-000" required pattern="\d{5}-\d{3}">
+            fields.forEach(field => {
+                const input = document.getElementById(field);
+                const error = document.getElementById('error-' + field);
+                if (!input.checkValidity()) {
+                    error.textContent = 'Campo obrigatório ou inválido.';
+                    input.classList.add('invalid');
+                    isValid = false;
+                } else {
+                    error.textContent = '';
+                    input.classList.remove('invalid');
+                }
+            });
 
-            <label for="endereco">Endereço</label>
-            <input type="text" id="endereco" name="endereco" placeholder="Rua, número, complemento" required>
+            if (isValid) {
+                confirmacao.style.display = 'block';
+                form.style.display = 'none';
+            }
+        });
 
-            <label for="cidade">Cidade</label>
-            <input type="text" id="cidade" name="cidade" placeholder="Sua cidade" required>
-
-            <label for="estado">Estado</label>
-            <select id="estado" name="estado" required>
-                <option value="">Selecione...</option>
-                <option value="AC">Acre</option>
-                <option value="AL">Alagoas</option>
-                <option value="AP">Amapá</option>
-                <option value="AM">Amazonas</option>
-                <option value="BA">Bahia</option>
-                <option value="CE">Ceará</option>
-                <option value="ES">Espírito Santo</option>
-                <option value="GO">Goiás</option>
-                <option value="MA">Maranhão</option>    
-                <option value="MG">Minas Gerais</option>
-                <option value="PA">Pará</option>
-                <option value="PB">Paraíba</option>
-                <option value="PE">Pernambuco</option>
-                <option value="PI">Piauí</option>
-                <option value="PR">Paraná</option>
-                <option value="RJ">Rio de Janeiro</option>
-                <option value="RN">Rio Grande do Norte</option>
-                <option value="RS">Rio Grande do Sul</option>
-                <option value="SC">Santa Catarina</option>
-                <option value="SE">Sergipe</option>
-                <option value="SP">São Paulo</option>
-                <option value="TO">Tocantins</option>
-
-            </select>
-        </fieldset>
-
-        <button type="submit">Cadastrar</button>
-    </form>
-</section>
-
-<script>
-  
-    document.getElementById('cpf').addEventListener('input', function(e) {
-        let v = e.target.value.replace(/\D/g,'');
-        v = v.replace(/(\d{3})(\d)/,'$1.$2');
-        v = v.replace(/(\d{3})(\d)/,'$1.$2');
-        v = v.replace(/(\d{3})(\d{1,2})$/,'$1-$2');
-        e.target.value = v;
-    });
-
-    document.getElementById('cep').addEventListener('input', function(e) {
-        let v = e.target.value.replace(/\D/g,'');
-        v = v.replace(/(\d{5})(\d)/,'$1-$2');
-        e.target.value = v;
-    });
-</script>
-
+        // Limpar erros ao focar
+        document.querySelectorAll('input, select').forEach(el => {
+            el.addEventListener('focus', function() {
+                this.classList.remove('invalid');
+                document.getElementById('error-' + this.id).textContent = '';
+            });
+        });
+    </script>
 </body>
 </html>
